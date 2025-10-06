@@ -27,7 +27,7 @@ Antes de comenzar, asegúrate de tener instalado:
 
 ```bash
 git clone <url-del-repositorio>
-cd productos-mvc-app
+cd express-mvc-mongodb
 ```
 
 O si no usas git, simplemente descarga y extrae el proyecto.
