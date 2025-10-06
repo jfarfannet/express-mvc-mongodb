@@ -1,0 +1,52 @@
+<div class="header-section">
+    <h2>Lista de Productos</h2>
+    <a href="/productos/nuevo" class="btn btn-primary">➕ Nuevo Producto</a>
+</div>
+
+{{#if estadisticas}}
+<div class="stats">
+    <div class="stat-card">
+        <h3>Total Productos</h3>
+        <p class="stat-number">{{estadisticas.total}}</p>
+    </div>
+    <div class="stat-card">
+        <h3>Valor Total Inventario</h3>
+        <p class="stat-number">${{estadisticas.valorTotal}}</p>
+    </div>
+</div>
+{{/if}}
+
+{{#if productos.length}}
+<table class="product-table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Valor Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each productos}}
+        <tr>
+            <td>{{this.nombre}}</td>
+            <td>${{this.precio}}</td>
+            <td>{{this.cantidad}}</td>
+            <td>${{multiply this.precio this.cantidad}}</td>
+            <td class="actions">
+                <a href="/productos/{{this._id}}/editar" class="btn btn-small btn-secondary">✏️ Editar</a>
+                <form action="/productos/{{this._id}}?_method=DELETE" method="POST" style="display: inline;" onsubmit="return confirm('¿Estás seguro de eliminar este producto?')">
+                    <button type="submit" class="btn btn-small btn-danger">🗑️ Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{else}}
+<div class="empty-state">
+    <p>📭 No hay productos registrados</p>
+    <a href="/productos/nuevo" class="btn btn-primary">Agregar el primero</a>
+</div>
+{{/if}}

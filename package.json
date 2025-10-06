@@ -1,0 +1,24 @@
+{
+  "name": "productos-mvc-app",
+  "version": "1.0.0",
+  "main": "app.js",
+"scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": ["mvc", "mongodb", "express", "handlebars"],
+  "author": "JF",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "Sistema de gestión de productos con patrón MVC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.19.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
